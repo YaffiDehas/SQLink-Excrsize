@@ -1,0 +1,12 @@
+C:\test\project\WebApi\DTO\bin\Debug\DTO.dll
+C:\test\project\WebApi\DTO\bin\Debug\DTO.pdb
+C:\test\project\WebApi\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+C:\test\project\WebApi\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\test\project\WebApi\DTO\obj\Debug\DTO.dll
+C:\test\project\WebApi\DTO\obj\Debug\DTO.pdb
+C:\Users\1\Pictures\Desktop\Tamar\Interview-Project-Ministry-of-Justice-master\WebApi\DTO\bin\Debug\DTO.dll
+C:\Users\1\Pictures\Desktop\Tamar\Interview-Project-Ministry-of-Justice-master\WebApi\DTO\bin\Debug\DTO.pdb
+C:\Users\1\Pictures\Desktop\Tamar\Interview-Project-Ministry-of-Justice-master\WebApi\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+C:\Users\1\Pictures\Desktop\Tamar\Interview-Project-Ministry-of-Justice-master\WebApi\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\1\Pictures\Desktop\Tamar\Interview-Project-Ministry-of-Justice-master\WebApi\DTO\obj\Debug\DTO.dll
+C:\Users\1\Pictures\Desktop\Tamar\Interview-Project-Ministry-of-Justice-master\WebApi\DTO\obj\Debug\DTO.pdb
