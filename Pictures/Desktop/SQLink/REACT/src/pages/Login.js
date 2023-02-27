@@ -5,9 +5,14 @@ import LoadingSpinner from "../component/LoadingSpinner"
 import { loginUser } from "../redux/actions";
 
 class Login extends Component {
+  // constructor() {
+  //   super();
+  //   this.onUserLogin = this.onUserLogin.bind(this);
+  // }
+
   onUserLogin = (user) => {
     this.props.loginUser(user);
-    if (this.props.user.token) {
+    if (this.props.token) {
       this.props.history.push('info');
     }
   }
@@ -24,7 +29,7 @@ class Login extends Component {
 function mapStateToProps(state) {
   return {
     loading: state.user.loading,
-    token: state.user.token
+    token: state.user.loginUser.token
   };
 }
 

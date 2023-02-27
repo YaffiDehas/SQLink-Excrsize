@@ -18,10 +18,10 @@ import {
 
 import * as types from "./actionType";
 
-function* onUserLoginAsync({ payload: { user } }) {
+function* onUserLoginAsync(action) {
   try {
     yield put(setLoading(true)); 
-    const response = yield call(loginUserApi, user);
+    const response = yield call(loginUserApi, action.payload);
     if (response.status === 200 || response.status === 201) {
       if (response.data.token) {
         const projects = yield call(getUserProjectsApi, response.data.token);
@@ -36,8 +36,8 @@ function* onUserLoginAsync({ payload: { user } }) {
   }
 }
 
-export function* onUserLogin() {
-  yield takeLatest(types.LOGIN_USER, onUserLoginAsync);
+export function* onUserLogin(payload) {
+  yield takeLatest(types.LOGIN_USER, payload => onUserLoginAsync(payload));
 }
 const userSagas = [
   fork(onUserLogin)

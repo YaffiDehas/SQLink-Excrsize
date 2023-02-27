@@ -6,7 +6,7 @@ import Score from "../component/Score";
 import Status from "../component/Status";
 import UserInfo from "../component/UserInfo";
 
-class NEWTable extends Component {
+class ProjectsList extends Component {
 
     componentDidMount() {
         const params = new URLSearchParams(window.location.search);
@@ -48,11 +48,10 @@ class NEWTable extends Component {
     }
 
     render() {
-        const {projects} = this.props.state;
-        const {filteredProjects} = projects;
+        const {filteredProjects, loginUser} = this.props;
         return (
             <div className="App">
-                <UserInfo />
+                <UserInfo loginUser={loginUser}/>
                 <Status projects={filteredProjects} />
                 <section className='section'>
                     <div className='container'>
@@ -148,7 +147,10 @@ class NEWTable extends Component {
 }
 
 function mapStateToProps(state) {
-    return {state};
+    return {
+        loginUser: state.user.loginUser,
+        filteredProjects: state.projects.filteredProjects
+    };
 }
 
-export default connect(mapStateToProps)(NEWTable);
+export default connect(mapStateToProps)(ProjectsList);

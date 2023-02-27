@@ -1,7 +1,7 @@
 import * as types from "./actionType";
 const initialState = {
   projects: [],
-  user: {},
+  loginUser: {},
   loading: false,
 };
 
@@ -10,7 +10,7 @@ const usersReducers = (state = initialState, action) => {
     case types.UPDATE_TOKEN: 
       return {
         ...state,
-        user: action.payload
+        loginUser: action.payload
       };
     case types.SET_LOADING:
       return {

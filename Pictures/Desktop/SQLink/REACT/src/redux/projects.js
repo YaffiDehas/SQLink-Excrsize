@@ -135,7 +135,7 @@ const filterStore = (state = initialState, action) => {
       //round up
       let totalPages = Math.ceil(count / countPerPage);
 
-      let products = [
+      let projects = [
         {
             "id": "5fb9953bd98214b6df37174d",
             "name": "Backend Project",
@@ -163,8 +163,8 @@ const filterStore = (state = initialState, action) => {
     ];
       return {
         ...state,
-        products,
-        filteredProjects: products.slice(0, countPerPage),
+        projects,
+        filteredProjects: projects.slice(0, countPerPage),
         currentCount: countPerPage,
         countPerPage,
         totalCount: count,

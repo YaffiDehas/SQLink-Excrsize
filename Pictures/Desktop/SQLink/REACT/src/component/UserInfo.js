@@ -2,15 +2,8 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { MDBBtn } from "mdb-react-ui-kit";
 
-const UserInfo = () => {
+const UserInfo = ({singleUser}) => {
   const history = useHistory();
-  const singleUser = {
-    id:123456789,
-    name: "moshe",
-    email: "dwdw@fle.com",
-    phone: 2345654231354,
-    address: "ytrewdfghnjhg"
-  };
 
   return (
     <div style={{ marginTop: "100px", backgroundColor: "lightblue"}}>
