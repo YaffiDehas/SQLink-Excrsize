@@ -8,16 +8,16 @@ import UserInfo from "../component/UserInfo";
 
 class ProjectsList extends Component {
 
-    componentDidMount() {
-        const params = new URLSearchParams(window.location.search);
-        const pageQueryParam = params.get('page');
-        if (!pageQueryParam) {
-            window.history.pushState({page: 1}, "title 1", "?page=1");
-        } else {
+    // componentDidMount() {
+    //     const params = new URLSearchParams(window.location.search);
+    //     const pageQueryParam = params.get('page');
+    //     if (!pageQueryParam) {
+    //         window.history.pushState({page: 1}, "title 1", "?page=1");
+    //     } else {
 
-        }
-        this.props.dispatch(loadData({count: 40}));
-    }
+    //     }
+    //     this.props.dispatch(loadData({count: 40}));
+    // }
 
     filterByInput(e){
         let input = e.target.value;
@@ -48,10 +48,10 @@ class ProjectsList extends Component {
     }
 
     render() {
-        const {filteredProjects, loginUser} = this.props;
+        const {filteredProjects, filteredPages, currentPage, loginUser} = this.props;
         return (
             <div className="App">
-                <UserInfo loginUser={loginUser}/>
+                {/* <UserInfo loginUser={loginUser}/> */}
                 <Status projects={filteredProjects} />
                 <section className='section'>
                     <div className='container'>
@@ -66,9 +66,9 @@ class ProjectsList extends Component {
                             </button>
                             <ul className="pagination-list">
                                 {
-                                    [...Array(this.props.state.filteredPages)].map((value, index) => (
+                                    [...Array(filteredPages)].map((value, index) => (
                                         <button
-                                            className={`button pagination-link ${this.props.state.currentPage === index + 1 ? "is-current" : ""}`}
+                                            className={`button pagination-link ${currentPage === index + 1 ? "is-current" : ""}`}
                                             aria-label="Page 1"
                                             onClick={() => this.goToPage(index + 1)}
                                             aria-current="page">
@@ -149,7 +149,9 @@ class ProjectsList extends Component {
 function mapStateToProps(state) {
     return {
         loginUser: state.user.loginUser,
-        filteredProjects: state.projects.filteredProjects
+        filteredProjects: state.projects.filteredProjects,
+        filteredPages: state.projects.filteredPages,
+        currentPage: state.projects.currentPage
     };
 }
 

@@ -100,7 +100,7 @@ const filterStore = (state = initialState, action) => {
     case FILTER_BY_VALUE:
       let newState = Object.assign({}, state);
       let value = action.payload.value;
-      let filteredValues = state.products.filter(product => {
+      let filteredValues = state.projects.filter(product => {
         return (
           product.name.toLowerCase().includes(value)
         );
@@ -120,7 +120,7 @@ const filterStore = (state = initialState, action) => {
         appliedFilters = removeFilter(FILTER_BY_VALUE, appliedFilters);
 
         if (appliedFilters.length === 0) {
-          newState.filteredProjects = newState.products;
+          newState.filteredProjects = newState.projects;
           newState.filteredCount = newState.filteredProjects.length;
           newState.filteredPages = Math.ceil(
             newState.filteredCount / newState.countPerPage
@@ -135,35 +135,9 @@ const filterStore = (state = initialState, action) => {
       //round up
       let totalPages = Math.ceil(count / countPerPage);
 
-      let projects = [
-        {
-            "id": "5fb9953bd98214b6df37174d",
-            "name": "Backend Project",
-            "score": 88,
-            "durationInDays": 35,
-            "bugsCount": 74,
-            "madeDadeline": false
-        },
-        {
-            "id": "5fb9953bd98214b6df37174d",
-            "name": "Frontend Project",
-            "score": 65,
-            "durationInDays": 12,
-            "bugsCount": 23,
-            "madeDadeline": false
-        },
-        {
-            "id": "5fb9953bd98214b6df37174d",
-            "name": "FullStack Project",
-            "score": 100,
-            "durationInDays": 20,
-            "bugsCount": 0,
-            "madeDadeline": true
-        }
-    ];
       return {
         ...state,
-        projects,
+        projects: action.payload.projects,
         filteredProjects: projects.slice(0, countPerPage),
         currentCount: countPerPage,
         countPerPage,
@@ -189,7 +163,7 @@ const filterStore = (state = initialState, action) => {
         let lowerCount = loadNewPageState.currentCount; //This hasn’t been changed. It will remain 20.
 
         loadNewPageState.currentCount += loadNewPageState.countPerPage;
-        nextProducts = loadNewPageState.products.slice(lowerCount, upperCount);
+        nextProducts = loadNewPageState.projects.slice(lowerCount, upperCount);
       }
 
       if (addPages === -1) {
@@ -197,7 +171,7 @@ const filterStore = (state = initialState, action) => {
         let lowerCount = loadNewPageState.currentCount - perPage; //20
 
         loadNewPageState.currentCount -= loadNewPageState.countPerPage;
-        nextProducts = loadNewPageState.products.slice(
+        nextProducts = loadNewPageState.projects.slice(
           lowerCount - perPage,
           upperCount - perPage
         );
@@ -216,7 +190,7 @@ const filterStore = (state = initialState, action) => {
       let upperCountExact = exactPageState.countPerPage * exactPage;
       let lowerCountExact = upperCountExact - exactPageState.countPerPage;
 
-      let exactProducts = exactPageState.products.slice(
+      let exactProducts = exactPageState.projects.slice(
         lowerCountExact,
         upperCountExact
       );
